@@ -1,5 +1,5 @@
 <div class="col-md-6 col-md-offset-3">
-  <form class="form-horizontal">
+  <form class="form-horizontal"  [formGroup]="formLogin"    (ngSubmit)="onLogin()" >
     <!-- Header Title -->
     <div class="form-group">
       <div class="col-sm-12">
@@ -8,22 +8,42 @@
     </div>
     <!-- User Name field -->
     <div class="form-group">
-      <label class="col-sm-3">User Name</label>
+      <label class="col-sm-3" [attr.for]="userName" >User Name</label>
       <div class="col-sm-5">
-        <input type="text">
+        <input 
+        type="text"
+        class="form-control"
+        formControlName="userName"
+        id="userName"
+        title="User Name"
+        placeholder="User Name"
+        name="userName"
+        >
       </div>
     </div>
     <!-- User Password field -->
     <div class="form-group">
-      <label class="col-sm-3">Password</label>
+      <label class="col-sm-3" [attr.for]="password" >Password</label>
       <div class="col-sm-5">
-        <input type="text">
+        <input 
+        type="password"
+        class="form-control"
+        formControlName="password"
+        id="password"
+        title="Password"
+        placeholder="Password"
+        name="password"
+        >
       </div>
     </div>
     <!-- User Login button -->
     <div class="form-group">
       <label class="col-sm-9 pull-right">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button 
+        id="btnLogin"
+        type="submit"
+        [disabled]="formLogin.invalid"
+        class="btn btn-primary">Login</button>
       </label>
     </div>
   </form>
