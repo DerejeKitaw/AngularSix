@@ -1,5 +1,18 @@
 # AngularSix
 
+### update cli
+```
+npm install -g @angular/cli
+```
+### update or install latest node
+```
+nvm install 8.11.1
+```
+### Generate new angular project
+```
+ng new angularSix --routing --style=scss
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
 ## Development server
