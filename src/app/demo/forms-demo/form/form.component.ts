@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ExampleDef } from '../example.model';
 
 @Component({
   selector: 'app-form',
@@ -6,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-
-  constructor() { }
-
+  constructor(
+    private router: Router,
+    @Inject('ExampleDefs') public examples: ExampleDef[]) {
+  }
   ngOnInit() {
   }
 

@@ -10,6 +10,7 @@ import { FormsDemoModule } from './forms-demo/forms-demo.module';
     DemoRoutingModule,
     FormsDemoModule
   ],
+  exports: [FormsDemoModule],
   declarations: []
 })
 export class DemoModule { }
