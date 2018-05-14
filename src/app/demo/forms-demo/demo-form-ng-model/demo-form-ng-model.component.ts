@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-demo-form-ng-model',
@@ -7,9 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoFormNgModelComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  myForm: FormGroup;
+  productName: string;
+
+  constructor(fb: FormBuilder) {
+    this.myForm = fb.group({
+      'productName':  ['', Validators.required]
+    });
   }
 
+  onSubmit(value: string): void {
+    console.log('you submitted value: ', value);
+  }
+  ngOnInit(): void {
+
+  }
 }

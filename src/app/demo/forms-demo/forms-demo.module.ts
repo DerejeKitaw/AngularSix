@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
+import {
+  CommonModule,
+  APP_BASE_HREF,
+  LocationStrategy,
+  HashLocationStrategy
+} from '@angular/common';
 
 import { FormsDemoRoutingModule } from './forms-demo-routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -17,6 +22,7 @@ import { DemoFormWithValidationsExplicitComponent } from './demo-form-with-valid
 import { DemoFormWithValidationsShorthandComponent } from './demo-form-with-validations-shorthand/demo-form-with-validations-shorthand.component';
 import { Routes } from '@angular/router';
 import { SidebarItemComponent } from './sidebar/sidebar-item/sidebar-item.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 /*
  * Here's the master list of our examples for this chapter.
@@ -67,10 +73,13 @@ export const examples: ExampleDef[] = [
   }
 ];
 
-
-
 @NgModule({
-  imports: [CommonModule, FormsDemoRoutingModule],
+  imports: [
+    CommonModule,
+    FormsDemoRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   declarations: [
     SidebarComponent,
     FormComponent,
@@ -86,9 +95,9 @@ export const examples: ExampleDef[] = [
   ],
   exports: [FormComponent],
   providers: [
-    { provide: APP_BASE_HREF,    useValue: '/forms' },
+    { provide: APP_BASE_HREF, useValue: '/forms' },
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: 'ExampleDefs',    useValue: examples }
+    { provide: 'ExampleDefs', useValue: examples }
   ]
 })
 export class FormsDemoModule {}
