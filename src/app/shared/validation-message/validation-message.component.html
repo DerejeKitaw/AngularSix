@@ -1,0 +1,21 @@
+<div class="error" *ngIf="isInvalid()">
+  <!-- Display error message in span-->
+  <span class="help-block" *ngIf="(control.touched || 
+   control.dirty) && 
+   control.errors">
+    <!-- Error message -->
+    <span *ngIf="control.errors.required">
+
+      Please enter {{name}}.
+    </span>
+    <!-- Error message -->
+    <span *ngIf="control.errors.minlength">
+      {{name}} must be longer than {{firstNameMinLength}} characters.
+    </span>
+    <!-- Error message -->
+    <span *ngIf="control.errors.maxlength">
+      The {{name}} must be less than {{maxLength}} characters.
+    </span>
+  </span>
+  <!-- {{error}} -->
+</div>

@@ -1,50 +1,45 @@
-<div class="col-md-6 col-md-offset-3">
-  <form class="form-horizontal"  [formGroup]="formLogin"    (ngSubmit)="onLogin()" >
-    <!-- Header Title -->
-    <div class="form-group">
-      <div class="col-sm-12">
-        <h1>Login</h1>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+      <div class="col-md-6 col-md-offset-3">
+        <form class="form-horizontal" [formGroup]="formLogin" (ngSubmit)="onLogin()">
+          <!-- Header Title -->
+          <div class="form-group">
+            <div class="col-sm-12">
+              <h1>Login</h1>
+            </div>
+          </div>
+          <!-- User Name field -->
+          <div class="form-group">
+            <label class="col-sm-3" [attr.for]="userName">User Name</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" formControlName="userName" id="userName" title="User Name" placeholder="User Name"
+                name="userName">
+              <app-validation-message [control]="formLogin.get('userName')" [name]="'User Name'" [type]="'required'" [error]="'User Name Required'">
+              </app-validation-message>
+              <app-validation-message [control]="formLogin.get('userName')" [name]="'User Name'" [type]="'minlength'" [error]="'Minimum 3 character'">
+              </app-validation-message>
+            </div>
+          </div>
+          <!-- User Password field -->
+          <div class="form-group">
+            <label class="col-sm-3" [attr.for]="password">Password</label>
+            <div class="col-sm-5">
+              <input type="password" class="form-control" formControlName="password" id="password" title="Password" placeholder="Password"
+                name="password">
+              <app-validation-message [control]="formLogin.get('password')" [name]="'Password'" [type]="'required'" [error]="'Password required'">
+              </app-validation-message>
+            </div>
+          </div>
+          <!-- User Login button -->
+          <div class="form-group">
+            <label class="col-sm-9 pull-right">
+              <button id="btnLogin" type="submit" [disabled]='!formLogin.valid' class="btn btn-primary">Login</button>
+            </label>
+          </div>
+    </form>
+    <!-- <div>form is: {{formLogin}}</div> -->
+    <!-- <div>form is: {{formError.userName}}</div> -->
+    <!-- <div>form is: {{formLogin.get('userName')}}</div> -->
     </div>
-    <!-- User Name field -->
-    <div class="form-group">
-      <label class="col-sm-3" [attr.for]="userName" >User Name</label>
-      <div class="col-sm-5">
-        <input 
-        type="text"
-        class="form-control"
-        formControlName="userName"
-        id="userName"
-        title="User Name"
-        placeholder="User Name"
-        name="userName"
-        >
-      </div>
-    </div>
-    <!-- User Password field -->
-    <div class="form-group">
-      <label class="col-sm-3" [attr.for]="password" >Password</label>
-      <div class="col-sm-5">
-        <input 
-        type="password"
-        class="form-control"
-        formControlName="password"
-        id="password"
-        title="Password"
-        placeholder="Password"
-        name="password"
-        >
-      </div>
-    </div>
-    <!-- User Login button -->
-    <div class="form-group">
-      <label class="col-sm-9 pull-right">
-        <button 
-        id="btnLogin"
-        type="submit"
-        [disabled]="formLogin.invalid"
-        class="btn btn-primary">Login</button>
-      </label>
-    </div>
-  </form>
+  </div>
 </div>
