@@ -27,7 +27,6 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/vender/semantic.min.css",
               "src/styles.scss"
             ],
             "scripts": []
